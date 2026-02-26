@@ -46,30 +46,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-  output: "export",
-  images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "pub-fae086c900b645d8a58b68eb2162dbca.r2.dev",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
-};
-
-export default nextConfig;
