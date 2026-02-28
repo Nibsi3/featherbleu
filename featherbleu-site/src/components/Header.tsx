@@ -103,10 +103,10 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden mt-2 bg-white border rounded-3xl overflow-hidden grid transition-[grid-template-rows] duration-700 ease-[cubic-bezier(.22,1,.36,1)] shadow-lg ${
+        className={`lg:hidden mt-2 bg-white rounded-3xl overflow-hidden grid transition-[grid-template-rows] duration-700 ease-[cubic-bezier(.22,1,.36,1)] shadow-lg ${
           isMobileMenuOpen
-            ? "grid-rows-[1fr] border-gray-200"
-            : "grid-rows-[0fr] pointer-events-none border-transparent"
+            ? "grid-rows-[1fr] border border-gray-200"
+            : "grid-rows-[0fr] pointer-events-none border-0"
         }`}
       >
         <div className="min-h-0 overflow-hidden">
