@@ -27,7 +27,7 @@ const blogPosts = [
   {
     title: "Understanding Smart Home Automation",
     excerpt: "A comprehensive guide to smart home technology and how it can make your life easier and safer.",
-    category: "Installation Guides",
+    category: "Home Technology",
     date: "2026-01-28",
     slug: "smart-home-automation-guide",
     thumbnail: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=600&q=80",

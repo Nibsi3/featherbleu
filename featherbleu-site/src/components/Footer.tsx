@@ -29,7 +29,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/featherbleu_ind"
+                href="https://www.instagram.com/featherbleu.ind/"
                 target="_blank"
                 rel="noreferrer"
                 className="h-10 w-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#2979FF] hover:border-[#2979FF]/50 transition"

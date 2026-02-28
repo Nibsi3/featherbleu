@@ -132,12 +132,12 @@ export default function ContactPage() {
                   <div>
                     <div className="font-semibold text-gray-900">Instagram</div>
                     <a
-                      href="https://www.instagram.com/featherbleu_ind"
+                      href="https://www.instagram.com/featherbleu.ind/"
                       target="_blank"
                       rel="noreferrer"
                       className="text-sm text-gray-500 hover:text-[#2979FF] transition"
                     >
-                      @featherbleu_ind
+                      @featherbleu.ind
                     </a>
                   </div>
                 </div>
