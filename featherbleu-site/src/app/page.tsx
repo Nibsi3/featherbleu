@@ -55,13 +55,13 @@ export default function HomePage() {
 
           <div className="relative mx-auto max-w-7xl px-6 py-14 z-10">
             <div className="grid gap-8 items-start lg:grid-cols-[1.25fr_0.9fr]">
-            <div className="relative rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 shadow-2xl p-10 md:p-12 flex flex-col items-center text-center gap-5 justify-start lg:h-[560px] overflow-hidden">
+            <div className="relative rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 shadow-2xl p-6 sm:p-10 md:p-12 flex flex-col items-center text-center gap-5 justify-start lg:h-[560px] overflow-hidden">
               <div className="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium shadow-lg">
                 <Shield className="h-4 w-4 text-[#2979FF]" />
                 Security & Automation - Garden Route
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold text-black leading-[1.05] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-[1.05] tracking-tight">
                 Live smarter.
                 <br />
                 <span className="text-[#2979FF]">Be safer.</span>
@@ -87,7 +87,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="mt-auto flex items-center justify-center gap-8 pt-6 pb-1 w-full">
+              <div className="mt-auto flex flex-wrap items-center justify-center gap-6 pt-6 pb-1 w-full">
                 <div className="text-center">
                   <div className="text-2xl sm:text-3xl font-bold text-black leading-none">1000+</div>
                   <div className="text-xs uppercase tracking-wider text-black/60 mt-1 leading-tight">Projects</div>

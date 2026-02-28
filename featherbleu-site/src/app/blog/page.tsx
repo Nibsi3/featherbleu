@@ -88,7 +88,7 @@ const blogPosts = [
     alt: "Smart home technology trends 2026 Garden Route",
   },
   {
-    title: "Access Control for Small Businesses",
+    title: "Access Control for Garden Route Businesses",
     excerpt: "How modern access control systems can protect your Garden Route business and streamline operations.",
     category: "Installation Guides",
     date: "2026-01-02",

@@ -50,7 +50,7 @@ export default function BlogPost() {
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
                     A comprehensive guide to smart home technology and how it can make your life easier and safer.
                   </p>
-                  <div className="flex items-center gap-6 text-sm text-gray-500">
+                  <div className="flex flex-wrap items-center gap-4 gap-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />
                       January 28, 2026
@@ -243,7 +243,7 @@ export default function BlogPost() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-gray-200">
                     <Link
                       href="/blog"
                       className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#2979FF] transition"

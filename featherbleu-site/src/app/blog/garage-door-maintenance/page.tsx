@@ -50,7 +50,7 @@ export default function BlogPost() {
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
                     Keep your garage door operating smoothly with our expert maintenance tips and schedule.
                   </p>
-                  <div className="flex items-center gap-6 text-sm text-gray-500">
+                  <div className="flex flex-wrap items-center gap-4 gap-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />
                       January 25, 2026
@@ -154,7 +154,7 @@ export default function BlogPost() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-8 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-gray-200">
                     <Link
                       href="/blog"
                       className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#2979FF] transition"

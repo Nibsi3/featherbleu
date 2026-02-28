@@ -27,7 +27,7 @@ export function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Professional security and automation solutions for homes and businesses. Live smarter. Be safer.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://www.instagram.com/featherbleu.ind/"
                 target="_blank"
