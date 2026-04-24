@@ -9,8 +9,8 @@ import { CTA } from "@/components/CTA";
 import { HeroBackground } from "@/components/GridBackground";
 
 export const metadata: Metadata = {
-  title: "Featherbleu Industries | Smart Security & Home Automation",
-  description: "Professional smart home automation, garage doors, gate automation, CCTV and access control. From Mossel Bay to Plettenberg Bay. Live smarter. Be safer.",
+  title: "BUSINESS_NAME_PLACEHOLDER | BUSINESS_CATEGORY_PLACEHOLDER",
+  description: "BUSINESS_DESCRIPTION_PLACEHOLDER. Located in LOCATION_PLACEHOLDER.",
 };
 
 const R2_CDN = "https://pub-fae086c900b645d8a58b68eb2162dbca.r2.dev";
@@ -26,14 +26,11 @@ const projectImages = [
 ];
 
 const testimonials = [
-  "Absolutely outstanding work from this team. I couldn't have asked for better.",
-  "Werner arrived at the scheduled time and quickly fixed the issue. Great service!",
-  "Your friendly attitude and extra effort are truly appreciated. Everything is working perfectly.",
-  "Professional and friendly service, I highly recommend.",
-  "Excellent service. Werner provided excellent service and kept his word.",
-  "Very neat installation, I can recommend them for your garage door needs.",
-  "Absolute top class customer service! Nothing is too much trouble for Werner and Joe.",
-  "You are efficient, hard working, honest and really go the extra mile.",
+  "TESTIMONIAL_1_TEXT",
+  "TESTIMONIAL_2_TEXT",
+  "TESTIMONIAL_3_TEXT",
+  "TESTIMONIAL_4_TEXT",
+  "TESTIMONIAL_5_TEXT",
 ];
 
 export default function HomePage() {
