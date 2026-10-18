@@ -1,33 +1,29 @@
-# featherbleu
+# Featherbleu Industries
 
-<!-- color-strip -->
-![build](https://img.shields.io/badge/build-passing-22c55e) ![coverage](https://img.shields.io/badge/coverage-growing-06b6d4) ![focus](https://img.shields.io/badge/focus-product%20quality-a855f7)
+Production website: https://featherbleu.co.za
 
+`production-site/` is the current, buildless static website. It preserves the live October 2026 design and is deployed to the existing Cloudflare Pages project **featherbleu-industries**. The older Next.js application in `featherbleu-site/` is retained for history and is not the source for the current public domain.
 
-## Overview
-This repository contains active product code and implementation details for the **featherbleu** project.
+## Preview and validate
 
-## Highlights
-- Clean project structure with separated app/data/config concerns.
-- Production-oriented setup with environment-driven configuration.
-- Ready for extension with tests, CI checks, and deployment workflows.
+```sh
+npm ci
+npm run preview
+npm run audit:seo
+node --check production-site/assets/site-20261017.js
+node scripts/seo-audit.mjs --url https://featherbleu.co.za
+```
 
-## Tech Stack
-- Node.js
-- TypeScript
-- React
-- Next.js
+Preview runs at http://127.0.0.1:4173. The production site has no runtime npm dependencies or server-side build. The root `sharp` development dependency is only used to prepare responsive images.
 
-## Run Locally
-1. Clone the repository and move into the project folder.
-2. Install dependencies (`npm install`, `pnpm install`, or the package manager used by the project).
-3. Create a local `.env` file if environment variables are required.
-4. Start the development server and verify the main flow works end-to-end.
+## Editing and deployment
 
-## Repository Layout
-- `featherbleu-site/`
+Edit the static HTML/CSS/JS directly. Deploy the contents of `production-site/`, including `_headers` and `_redirects`, to the existing Pages project. Use `main` for production. Keep the root `404.html` so unknown paths return a real 404.
 
-## Security Notes
-- Keep credentials in environment variables, never in tracked files.
-- Rotate and replace any key immediately if exposure is suspected.
-- Use least-privilege tokens for third-party integrations.
+Assets have a one-year immutable cache. Never overwrite an already published asset URL with different bytes; use a new versioned or content-hashed name and update its HTML references. HTML retains Pages' normal revalidation behavior. The image preparation script creates responsive WebP variants with content-hashed filenames. Font files include their original OFL licenses.
+
+The existing Sites source is `appgprj_6ab66c98b5348191a7057413e5e9f4e3`. Its `dist/` corresponds to this repository's `production-site/`. Its separate ChatGPT Site URL is not the public domain's hosting origin. Do not replace the Cloudflare custom-domain configuration or publish the legacy Next.js app over this design.
+
+## October 17, 2026 audit
+
+See [AUDIT.md](AUDIT.md) for measured findings, changes, verification and deployment evidence. Tests use synthetic lab measurements; they do not establish real-user Core Web Vitals or search ranking improvements.

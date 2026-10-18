@@ -1,0 +1,12 @@
+{
+  "name": "featherbleu-production",
+  "private": true,
+  "scripts": {
+    "audit:seo": "node scripts/seo-audit.mjs",
+    "images": "node scripts/optimize-images.mjs",
+    "preview": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.35.5"
+  }
+}

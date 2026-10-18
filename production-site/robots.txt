@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://featherbleu.co.za/sitemap.xml
