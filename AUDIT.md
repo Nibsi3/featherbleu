@@ -45,4 +45,17 @@ Detailed local evidence is retained in ignored `featherbleu-site/audit-artifacts
 
 ## Deployment
 
-Production publication and final live verification are recorded below when complete.
+Published to Cloudflare Pages production on October 18, 2026. The current live design is preserved. Implementation commit: `a8a175d167d723ef1de240fc5f008d77d4d199e5`, pushed to GitHub main. Initial release deployment: `8fb5ef75-92bf-430f-9726-63d4445c1f9d`. Sites source was also pushed as `5f099a06c78374f93dab1eeecfa02fae3fb4a43c` and saved as version 12.
+
+Final live Lighthouse measurements (same settings as baseline):
+
+| Page/device | Baseline performance | Live fixed performance | Baseline LCP | Live fixed LCP | Live fixed transfer |
+|---|---:|---:|---:|---:|---:|
+| Home mobile | 70 | 78 | 6.5s | 4.9s | 389 KiB |
+| Home desktop | 95 | 100 | 1.2s | 0.6s | 513 KiB |
+| Gate mobile | 77 | 86 | 4.6s | 3.8s | 349 KiB |
+| Projects mobile | 75 | 99 | 4.8s | 1.9s | 768 KiB |
+
+All four live runs scored 100 for SEO, accessibility and best practices, with CLS 0. Home mobile transfer fell approximately 64%. Home mobile LCP remains above the good threshold in this simulated run; local preview results must not be substituted for live results. Existing GA4 analytics is preserved and remains a significant third-party request. Lab results vary with network and machine conditions.
+
+All 24 live routes passed the SEO audit with zero failures. Versioned assets return immutable cache headers. Both www and the default Pages hostname return 301 to the apex, preserving paths and query strings. Host matching requires Cloudflare Bulk Redirects, rather than Pages `_redirects`: list `featherbleu_canonical_hosts` (`0965dbaad9334dbb8b18cfd40659d40c`), rule `5313909bd3bf451ba8c12841dfd2cca3`. Existing unrelated redirect rules were preserved.
