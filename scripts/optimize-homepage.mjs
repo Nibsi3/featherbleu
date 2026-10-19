@@ -3,10 +3,13 @@ import fs from 'node:fs/promises';
 const filename = 'production-site/index.html';
 let html = await fs.readFile(filename, 'utf8');
 // Keep the exact cascade, including the current profile and comparison cards.
-const cssPaths = [...html.matchAll(/<link rel="stylesheet" href="(\/assets\/[^\"]+)">/g)].map(match => match[1]);
+const existingInline = /<style id="homepage-styles">[\s\S]*?<\/style>/;
+const cssPaths = existingInline.test(html)
+  ? ['/assets/site-20261017.css', '/assets/installer-profile-20261019.css', '/assets/comparisons-20261019.css']
+  : [...html.matchAll(/<link rel="stylesheet" href="(\/assets\/[^\"]+)">/g)].map(match => match[1]);
 if (cssPaths.length) {
   const css = (await Promise.all(cssPaths.map(file => fs.readFile('production-site' + file, 'utf8')))).join('\n');
-  html = html.replace(/<link rel="stylesheet" href="\/assets\/[^\"]+">/g, '');
+  html = html.replace(existingInline, '').replace(/<link rel="stylesheet" href="\/assets\/[^\"]+">/g, '');
   html = html.replace('</head>', `<style id="homepage-styles">${css}</style></head>`);
 }
 const analytics = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8ZP0V3364"></script>';

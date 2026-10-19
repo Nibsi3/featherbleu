@@ -65,3 +65,24 @@ All 24 live routes passed the SEO audit with zero failures. Versioned assets ret
 Published the homepage MyInstaller profile card and five comparison guides to the existing Cloudflare Pages production project `featherbleu-industries` using the connected Cloudflare API. Deployment: `d52532da-1caf-476a-8925-03c6d236f878`; production branch: `main`. This direct upload includes the local working-tree changes, which remain uncommitted.
 
 Cloudflare reported a successful production deployment. All 29 live sitemap routes passed the SEO audit with zero failures. The homepage, all five comparison pages, two new stylesheets and MyInstaller logo returned HTTP 200 and matched local SHA-256 hashes. Existing headers and redirect configuration were included. Comparison layouts were checked locally at 320, 390, 768 and 1440 pixels with no page overflow.
+
+## October 19, 2026: Mobile homepage speed follow-up
+
+Kept the current design, MyInstaller card, comparison guides and GA4 property. Inlined the homepage's three existing stylesheets in their original cascade order, removing three blocking requests. Other pages retain their cached external stylesheets. The homepage queues analytics configuration immediately and loads the GA4 library at low fetch priority after the load event, two animation frames and an idle callback (1.5-second maximum idle wait, with a timer fallback). This preserves queued events while prioritizing the initial render; very short visits that leave before the library loads may not be recorded.
+
+Re-run `node scripts/optimize-homepage.mjs` after changing homepage stylesheet sources. It regenerates the embedded styles without duplicating the analytics loader.
+
+| Production homepage metric | Before this follow-up | After |
+|---|---:|---:|
+| Mobile Lighthouse performance | 85 | 90 median (93, 90, 86) |
+| Mobile LCP | 4.1s | 3.1s median (3.0, 3.1, 3.1s) |
+| Mobile TBT | See baseline report | 110ms median (70, 110, 230ms) |
+| Mobile CLS | 0 | 0 in all three runs |
+| Desktop performance | Prior release: 100 | 99 |
+| Desktop LCP | Prior release: 0.6s | 0.8s |
+
+Measured with Lighthouse 12.8.2 and default simulated throttling on the real production URL. The local candidate scored 97, but the production numbers above are the release results. The 90 target was reached on the median; it is not a guarantee for every run. Mobile LCP still exceeds 2.5 seconds.
+
+All live homepage runs retained 100 SEO, accessibility and best practices. All 29 live sitemap routes passed the SEO audit. Live menu and gallery focus behavior passed; the four checked routes had no axe violations, horizontal overflow or JavaScript errors. Before/after full-page screenshots retained the same dimensions and computed style values; desktop text rasterization varied between captures. The analytics loader was checked to load once and retain the original page-view configuration queue.
+
+Implementation commit: `457bd7e`. Successful production deployment: `6c1274af-3e55-488a-809a-3a99ef3dc395`. Prior published but uncommitted MyInstaller/comparison changes were recorded separately before the speed commit. Evidence: `.release/mobile-before.json`, `.release/mobile-live-{1,2,3}.json`, `.release/desktop-live-speed.json`, `.release/seo-live-speed.json` and `.release/interactions-live.json` (local ignored artifacts).
