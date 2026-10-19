@@ -86,3 +86,23 @@ Measured with Lighthouse 12.8.2 and default simulated throttling on the real pro
 All live homepage runs retained 100 SEO, accessibility and best practices. All 29 live sitemap routes passed the SEO audit. Live menu and gallery focus behavior passed; the four checked routes had no axe violations, horizontal overflow or JavaScript errors. Before/after full-page screenshots retained the same dimensions and computed style values; desktop text rasterization varied between captures. The analytics loader was checked to load once and retain the original page-view configuration queue.
 
 Implementation commit: `457bd7e`. Successful production deployment: `6c1274af-3e55-488a-809a-3a99ef3dc395`. Prior published but uncommitted MyInstaller/comparison changes were recorded separately before the speed commit. Evidence: `.release/mobile-before.json`, `.release/mobile-live-{1,2,3}.json`, `.release/desktop-live-speed.json`, `.release/seo-live-speed.json` and `.release/interactions-live.json` (local ignored artifacts).
+
+## October 19, 2026: Consistent 90+ mobile follow-up
+
+Added responsive AVIF sources for the two homepage photographs, retaining the existing WebP image fallbacks, dimensions, alt text and layout. Replaced the oversized MyInstaller PNG download with responsive lossless WebP versions of the same logo. The original image files remain available. Regenerate these assets with `node scripts/optimize-home-images.mjs`.
+
+The 768px photograph downloads fell from approximately 74 KB and 41 KB to 45 KB and 25 KB. The logo fell from approximately 34 KB to 10 KB at the selected 280px width. Total first-load transfer in the mobile lab run fell from 434,549 to 365,301 bytes (about 16%).
+
+Three sequential Lighthouse 12.8.2 runs against production, without concurrent browser tests:
+
+| Metric | Run 1 | Run 2 | Run 3 | Median |
+|---|---:|---:|---:|---:|
+| Mobile performance | 99 | 95 | 97 | 97 |
+| Mobile LCP | 1.7s | 2.6s | 2.1s | 2.1s |
+| Mobile TBT | 60ms | 100ms | 70ms | 70ms |
+
+Desktop performance: 100, LCP 0.6s. All four runs scored 100 for SEO, accessibility and best practices. These are measured lab results, not guarantees of field performance.
+
+The current design and analytics are preserved. Before/after heading geometry and full document height matched exactly at 320, 390, 768 and 1440px with no overflow. All 29 live pages passed the SEO audit. AVIF assets return HTTP 200, `image/avif` and immutable cache headers. The earlier inline-font experiment was discarded because it did not outperform production; it is not included in this release.
+
+Implementation commit: `aedf588`. Successful production deployment: `9f4ee7b3-6cd7-4352-8287-18aa6ff04d64`. Evidence: `.release/images-live-{1,2,3}.json`, `.release/images-live-desktop.json`, `.release/image-geometry.json`, `.release/seo-live-images.json` and `.release/interactions-live-images.json`.
