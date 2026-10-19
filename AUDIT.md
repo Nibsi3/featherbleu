@@ -59,3 +59,9 @@ Final live Lighthouse measurements (same settings as baseline):
 All four live runs scored 100 for SEO, accessibility and best practices, with CLS 0. Home mobile transfer fell approximately 64%. Home mobile LCP remains above the good threshold in this simulated run; local preview results must not be substituted for live results. Existing GA4 analytics is preserved and remains a significant third-party request. Lab results vary with network and machine conditions.
 
 All 24 live routes passed the SEO audit with zero failures. Versioned assets return immutable cache headers. Both www and the default Pages hostname return 301 to the apex, preserving paths and query strings. Host matching requires Cloudflare Bulk Redirects, rather than Pages `_redirects`: list `featherbleu_canonical_hosts` (`0965dbaad9334dbb8b18cfd40659d40c`), rule `5313909bd3bf451ba8c12841dfd2cca3`. Existing unrelated redirect rules were preserved.
+
+## October 19, 2026: MyInstaller and comparison guides
+
+Published the homepage MyInstaller profile card and five comparison guides to the existing Cloudflare Pages production project `featherbleu-industries` using the connected Cloudflare API. Deployment: `d52532da-1caf-476a-8925-03c6d236f878`; production branch: `main`. This direct upload includes the local working-tree changes, which remain uncommitted.
+
+Cloudflare reported a successful production deployment. All 29 live sitemap routes passed the SEO audit with zero failures. The homepage, all five comparison pages, two new stylesheets and MyInstaller logo returned HTTP 200 and matched local SHA-256 hashes. Existing headers and redirect configuration were included. Comparison layouts were checked locally at 320, 390, 768 and 1440 pixels with no page overflow.
